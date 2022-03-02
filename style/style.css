@@ -1,0 +1,41 @@
+h1, h2, h3 {text-align: center;}
+
+main {
+    margin: 50px auto;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+main::before{
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    /* background: url(); */
+    left: 0;
+    top: 0;
+}
+
+main::after{
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 100%;
+    /* background: url(); */
+    bottom: 0;
+    left: 0;
+}
+
+main>* {
+    display: flex;
+    flex-direction: column;
+}
+
+main>section {width: 32.5%;}
+main>div {width: 62.5%;}
+
+adress * {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
