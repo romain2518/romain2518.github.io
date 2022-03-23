@@ -44,6 +44,7 @@ textarea {
 	margin-top: 10px;
 	display: inline-block;
     width: -webkit-fill-available;
+	min-height: 75px;
 }
 
 /* Game window */
