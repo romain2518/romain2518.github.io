@@ -1,6 +1,15 @@
 const mainElm = document.querySelector('main');
 const h1SpanElm = document.querySelector('header h1 span');
 
+
+//Creating custom level form
+let formElm = document.createElement('form');
+let textareaElm = document.createElement('textarea');
+let submitBtnElm = document.createElement('input');
+submitBtnElm.type = 'submit';
+
+formElm.append(textareaElm, submitBtnElm);
+
 //Preconstruction of game level elements
 const backToLevelChoiceElm = document.createElement('a');
 backToLevelChoiceElm.href = '#';
@@ -36,34 +45,19 @@ const init = function () {
 		linkElm.addEventListener('click', loadLevel);
 	}
 
+	//Adding custom level form
+	mainElm.appendChild(formElm);
+
+	formElm.addEventListener('submit', function (event) {
+		event.preventDefault();
+
+		addCustomlLevel();
+		loadLevel(null, levels.length -1);
+	})
+
 	console.log('init');
 }
 
-
-function loadLevel(event) {
-	levelId = event.srcElement.id;
-	progress = 0;
-	
-	//Clear levels choice window
-	mainElm.innerHTML = '';
-	
-	//Create level window
-	h1SpanElm.innerText = levels[levelId].title;
-
-	mainElm.appendChild(backToLevelChoiceElm);
-	backToLevelChoiceElm.addEventListener('click', init);
-
-	templateElm.innerText = levels[levelId].text;
-	mainElm.appendChild(templateElm);
-	
-	userProgressElm.innerText = ''; //Reset content of last level played
-	userProgressElm.style.top = '-' + templateElm.offsetHeight + 'px';
-	mainElm.appendChild(userProgressElm);
-
-	document.addEventListener('keydown', checkNextLetter)
-
-	console.log('Level loaded');
-}
 
 function checkNextLetter(keyEvent) {
 	if (keyEvent.key === levels[levelId].text[progress]) {
@@ -87,6 +81,43 @@ function checkNextLetter(keyEvent) {
 			console.log('Win');
 		}
 	}
+}
+
+function loadLevel(event, presetLevelId = null) {
+	if (presetLevelId === null) {
+		levelId = event.srcElement.id;
+	} else {
+		levelId = presetLevelId;
+	}
+	progress = 0;
+	
+	//Clear levels choice window
+	mainElm.innerHTML = '';
+	
+	//Create level window
+	h1SpanElm.innerText = levels[levelId].title;
+
+	mainElm.appendChild(backToLevelChoiceElm);
+	backToLevelChoiceElm.addEventListener('click', init);
+
+	templateElm.innerText = levels[levelId].text;
+	mainElm.appendChild(templateElm);
+	
+	userProgressElm.innerText = ''; //Reset content of last level played
+	userProgressElm.style.top = '-' + templateElm.offsetHeight + 'px';
+	mainElm.appendChild(userProgressElm);
+
+	document.addEventListener('keydown', checkNextLetter)
+
+	console.log('Level loaded');
+}
+
+function addCustomlLevel() {
+	let newLevel = {
+		title: 'Niveau personnalisé',
+		text: textareaElm.value
+	}
+	levels.push(newLevel);
 }
 
 
