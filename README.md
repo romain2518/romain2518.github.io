@@ -1,5 +1,5 @@
 # On my github page, you'll find :
 
-- My CV (unfinished yet),
-- A piano emulator project,
-- A typing game
+- [My CV (unfinished yet)](/CV),
+- [A piano emulator project](/piano),
+- [A typing game](typingGame)
