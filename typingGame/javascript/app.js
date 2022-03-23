@@ -5,8 +5,11 @@ const h1SpanElm = document.querySelector('header h1 span');
 //Creating custom level form
 let formElm = document.createElement('form');
 let textareaElm = document.createElement('textarea');
+textareaElm.placeholder = 'Texte du niveau personnalisé...';
+
 let submitBtnElm = document.createElement('input');
 submitBtnElm.type = 'submit';
+submitBtnElm.value = 'Jouer le niveau personnalisé';
 
 formElm.append(textareaElm, submitBtnElm);
 
@@ -115,7 +118,7 @@ function loadLevel(event, presetLevelId = null) {
 function addCustomlLevel() {
 	let newLevel = {
 		title: 'Niveau personnalisé',
-		text: textareaElm.value
+		text: textareaElm.value.replaceAll('\n', '\n \t\t').trim()
 	}
 	levels.push(newLevel);
 }

@@ -40,6 +40,11 @@ main ul a::before {
 	margin-right: 4px;
 }
 
+textarea {
+	margin-top: 10px;
+	display: inline-block;
+    width: -webkit-fill-available;
+}
 
 /* Game window */
 main p {
