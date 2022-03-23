@@ -72,7 +72,7 @@ function checkNextLetter(keyEvent) {
 		
 		progress++;
 		
-		if (levels[levelId].text[progress] === '\n') {
+		while (levels[levelId].text[progress] === '\n') {
 			userProgressElm.innerHTML += '<br>';
 			progress+= 4;
 		}
