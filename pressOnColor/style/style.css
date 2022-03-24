@@ -1,0 +1,50 @@
+body {
+    width: 100%;
+    background-color: #636e72;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+nav {
+    width: fit-content;
+    margin: 20px auto;
+}
+
+nav>button {
+    width: 90px;
+    height: 90px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+main {
+    width: 700px;
+    margin: 20px auto;
+}
+
+main section {
+    display: flex;
+    justify-content: space-between;
+}
+main article {
+    width: 300px;
+    font-size: 0;
+    display: inline-block;
+}
+main article.left button {background-color: blue;}
+main article.right button {background-color: red;}
+
+main article.left button.toClick {background-color: darkblue;}
+main article.right button.toClick {background-color: darkred;}
+
+main article button {
+    width: 100px;
+    height: 100px;
+}
+main article button.active {border-style: inset;}
+main article button:nth-child(4) {margin-right: 100px;}
