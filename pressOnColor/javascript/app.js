@@ -9,6 +9,8 @@ const gapDuration = 250;
 const cycleDuration = stayDuration + gapDuration;
 
 
+
+
 function flashCase() {
 	if (!isPaused) {
 		randomBtn = buttonsElms[Math.floor(Math.random()*buttonsElms.length)];
@@ -20,6 +22,8 @@ function flashCase() {
 	}
 }
 
+
+//#region command functions
 function startGame() {
 	isPaused = false;
 	if (!gameInterval) {	
@@ -35,7 +39,7 @@ function stopGame() {
 	clearInterval(gameInterval);
 	gameInterval = null;
 }
-
+//#endregion command functions
 
 
 
@@ -57,6 +61,8 @@ document.addEventListener('keydown', function (keyEvent) {
 	}
 });
 
+
+//Command event listeners
 document.querySelector('nav>button:first-child').addEventListener('click', startGame);
 document.querySelector('nav>button:nth-child(2)').addEventListener('click', pauseGame);
 document.querySelector('nav>button:last-child').addEventListener('click', stopGame);
