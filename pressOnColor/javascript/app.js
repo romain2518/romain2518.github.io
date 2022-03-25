@@ -5,6 +5,7 @@ const secondOutputElm = document.querySelector('output:last-child');
 
 let randomBtn, gameInterval, isPaused;
 let scoreCounter = 0;
+let timer = 0;
 
 //Parameters
 const stayDuration = 2000;
@@ -38,6 +39,7 @@ function flashCase() {
 				stopGame();
 			}
 		}, stayDuration);
+		timer += cycleDuration/1000;
 	}
 }
 
@@ -65,12 +67,13 @@ function stopGame() {
 	firstOutputElm.innerText = scoreCounter;
 	secondOutputElm.innerText = 0;
 	scoreCounter = 0;
+	timer = 0;
 
 	console.log('Game finished');
 }
 //#endregion command functions
 
-
+//#region Eventlisteners
 buttonsElms.forEach(button => {
 	button.addEventListener('click', checkButton);
 });
@@ -94,3 +97,4 @@ document.addEventListener('keydown', function (keyEvent) {
 document.querySelector('nav>button:first-child').addEventListener('click', startGame);
 document.querySelector('nav>button:nth-child(2)').addEventListener('click', pauseGame);
 document.querySelector('nav>button:last-child').addEventListener('click', stopGame);
+//#endregion Eventlisteners
