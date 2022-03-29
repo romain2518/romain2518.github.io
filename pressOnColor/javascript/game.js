@@ -1,3 +1,33 @@
+/** Game module tree :
+ *
+ * Game :
+ * |- init()
+ * |- commands
+ * 		|- start()
+ * 		|- pause()
+ * 		|- stop()
+ * |- status
+ * 		|- isPaused
+ * 		|- score
+ * 		|- timer
+ * |- parameters
+ * 		|- stayDuration
+ * 		|- gapDuration
+ * 		|- cycleDuration
+ * |- elms
+ * 		|- randomButton
+ * 		|- buttons : []
+ * 		|- firstOutput
+ * 		|- secondOutput
+ * 		|- timerOutput
+ * 		|- stayDurationInput
+ * 		|- gapDurationInput
+ * |- flashCase()
+ * |- checkButton()
+ * |- gameInterval
+ */
+
+
 const game = {
 	init: function () {
 		//init game parameters
