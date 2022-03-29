@@ -56,16 +56,21 @@ const game = {
 		document.querySelector('nav>button:nth-child(2)').addEventListener('click', game.commands.pause);
 		document.querySelector('nav>button:last-child').addEventListener('click', game.commands.stop);
 
+		//Command keybinds
+		document
+
 		//Buttons event listeners
 		game.elms.buttons.forEach(button => {
 			button.addEventListener('click', game.checkButton);
 		});
 
-		//Buttons keybinds
+		//Keybinds
 		const buttonShortcuts = ['KeyQ', 'KeyW', 'KeyE', 'KeyA', 'KeyD', 'KeyZ', 'KeyX', 'KeyC', 'Numpad7', 'Numpad8', 'Numpad9', 'Numpad4', 'Numpad6', 'Numpad1', 'Numpad2', 'Numpad3'];
 
 		document.addEventListener('keydown', function (keyEvent) {
 			if (keyEvent.repeat) return;
+
+			//Buttons
 			if (buttonShortcuts.includes(keyEvent.code)) {
 				game.elms.buttons[buttonShortcuts.indexOf(keyEvent.code)].classList.add('active');
 				
@@ -74,6 +79,18 @@ const game = {
 				setTimeout(function () {
 					game.elms.buttons[buttonShortcuts.indexOf(keyEvent.code)].classList.remove('active');
 				}, 100);
+			}
+
+			//Commands
+			if (keyEvent.code === 'Space') {
+				if (game.status.isPaused) {
+					game.commands.start();
+				} else {
+					game.commands.pause();
+				}
+			}
+			if (keyEvent.code === 'Escape') {
+				game.commands.stop();
 			}
 		});
 	},
@@ -111,7 +128,7 @@ const game = {
 	},
 
 	status: {
-		isPaused: false,
+		isPaused: true,
 		score: 0,
 		timer: 0,
 	},
