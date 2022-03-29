@@ -27,6 +27,11 @@ main {
     margin: 20px auto;
 }
 
+main h2 {
+    margin: 10px 0 5px 0;
+    font-size: 1.5em;
+}
+
 main section {
     display: flex;
     justify-content: space-between;
