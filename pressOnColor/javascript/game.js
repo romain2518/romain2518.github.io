@@ -97,9 +97,12 @@ const game = {
 			clearInterval(game.gameInterval);
 			game.gameInterval = null;
 
+			game.elms.randomButton = null;
+
 			game.elms.firstOutput.innerText = game.status.score;
 			game.elms.secondOutput.innerText = 0;
 			game.status.score = 0;
+			
 			game.elms.timerOutput.innerText = 0;
 			game.status.timer = 0;
 
