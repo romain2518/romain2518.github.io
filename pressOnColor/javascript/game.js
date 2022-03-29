@@ -4,6 +4,22 @@ const game = {
 		game.parameters.stayDuration = 2000;
 		game.parameters.gapDuration = 1000;
 		game.parameters.cycleDuration = game.parameters.stayDuration + game.parameters.gapDuration;
+		
+		game.elms.stayDurationInput.value = game.parameters.stayDuration;
+		game.elms.gapDurationInput.value = game.parameters.gapDuration;
+		
+		//Game param changer inputs Event listeners
+		game.elms.stayDurationInput.addEventListener('change', function (event) {
+			game.commands.stop();
+			game.parameters.stayDuration = parseInt(event.currentTarget.value);
+			game.parameters.cycleDuration = game.parameters.stayDuration + game.parameters.gapDuration;
+		});
+
+		game.elms.gapDurationInput.addEventListener('change', function (event) {
+			game.commands.stop();
+			game.parameters.gapDuration = parseInt(event.currentTarget.value);
+			game.parameters.cycleDuration = game.parameters.stayDuration + game.parameters.gapDuration;
+		});
 
 		//Command event listeners
 		document.querySelector('nav>button:first-child').addEventListener('click', game.commands.start);
@@ -31,10 +47,12 @@ const game = {
 			}
 		});
 	},
+	
 	commands: {
 		start: function () {
 			game.status.isPaused = false;
-			if (!game.gameInterval) {	
+			if (!game.gameInterval) {
+				game.flashCase(); //Force the game to start at the same time as the game interval 
 				game.gameInterval = setInterval(game.flashCase, game.parameters.cycleDuration);
 			}
 
@@ -52,27 +70,35 @@ const game = {
 			game.elms.firstOutput.innerText = game.status.score;
 			game.elms.secondOutput.innerText = 0;
 			game.status.score = 0;
+			game.elms.timerOutput.innerText = 0;
 			game.status.timer = 0;
 
 			console.log('Game finished');
 		},
 	},
+
 	status: {
 		isPaused: false,
 		score: 0,
 		timer: 0,
 	},
+
 	parameters: {
 		stayDuration: undefined,
 		gapDuration: undefined,
 		cycleDuration: undefined,
 	},
+
 	elms: {
 		randomButton: null,
 		buttons: document.querySelectorAll('article>button'),
 		firstOutput: document.querySelector('output:first-child'),
 		secondOutput: document.querySelector('output:last-child'),
+		timerOutput: document.querySelector('#timer output'),
+		stayDurationInput: document.querySelector('#stayDuration'),
+		gapDurationInput: document.querySelector('#gapDuration'),
 	},
+
 	flashCase: function () {
 		if (!game.status.isPaused) {
 			game.elms.randomButton = game.elms.buttons[Math.floor(Math.random()*game.elms.buttons.length)];
@@ -84,9 +110,12 @@ const game = {
 					game.commands.stop();
 				}
 			}, game.parameters.stayDuration);
+
 			game.status.timer += game.parameters.cycleDuration/1000;
+			game.elms.timerOutput.innerText = game.status.timer;
 		}
 	},
+
 	checkButton: function (event) {
 		if (event.target === game.elms.randomButton) {
 			game.status.score++;
@@ -97,5 +126,6 @@ const game = {
 			game.commands.stop();
 		}
 	},
+
 	gameInterval: null,
 };
