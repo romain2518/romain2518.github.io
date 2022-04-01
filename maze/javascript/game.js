@@ -60,16 +60,20 @@ const game = {
     keydownHandler: function (event) {
         if (event.repeat) return;
         switch (event.code) {
-            case 'ArrowUp' || 'KeyW':
+            case 'ArrowUp':
+            case 'KeyW':
                 game.move.up();
                 break;
-            case 'ArrowRight' || 'KeyD':
+            case 'ArrowRight':
+            case 'KeyD':
                 game.move.right();
                 break;
-            case 'ArrowDown' || 'KeyS':
+            case 'ArrowDown':
+            case 'KeyS':
                 game.move.down();
                 break;
-            case 'ArrowLeft' || 'KeyA':
+            case 'ArrowLeft':
+            case 'KeyA':
                 game.move.left();
                 break;
         }
