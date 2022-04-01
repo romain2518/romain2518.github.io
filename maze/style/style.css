@@ -1,0 +1,43 @@
+body {
+    background-color: #808e9b;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+section>div {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+}
+
+section div div {
+    aspect-ratio: 1;
+}
+section div:nth-child(odd) div.empty:nth-child(odd) {background-color: #05c46b;}
+section div:nth-child(odd) div.empty:nth-child(even) {background-color: #4bcffa;}
+section div:nth-child(even) div.empty:nth-child(odd) {background-color: #4bcffa;}
+section div:nth-child(even) div.empty:nth-child(even) {background-color: #05c46b;}
+
+.wall {
+    background-color: #485460;
+}
+
+.fox::before,
+.house::before {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.fox::before {
+    content: '';
+    background: url(../img/fox.svg);
+}
+.house::before {
+    content: '';
+    background: url(../img/house.svg);
+}
