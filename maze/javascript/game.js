@@ -1,6 +1,6 @@
 const game = {
     init: function () {
-        game.loadLevel(2);
+        game.loadLevel(0);
         
         document.addEventListener('keydown', game.keydownHandler);
     },
