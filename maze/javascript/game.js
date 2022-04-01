@@ -13,6 +13,9 @@ const game = {
     loadLevel: function (level) {
         const mazeElm = document.querySelector('section');
 
+        //Clear window
+        mazeElm.innerHTML = '';
+
         document.querySelector('h2 span').innerText = levels[level].title;
         game.map = levels[level].map
 
@@ -75,14 +78,6 @@ const game = {
     checkCase: function () {
         if (document.querySelector(`section div:nth-child(${game.coordinates.y+1}) div:nth-child(${game.coordinates.x+1})`).classList.contains('house')) {
             window.alert('Victoire !!!');
-
-            // Manuel reset
-            // document.querySelector('section').innerHTML = '';
-            // document.removeEventListener('keydown', game.keydownHandler);
-            // game.coordinates.x = 2;
-            // game.coordinates.y = 7;
-
-            // game.init();
         }
     },
     move: {
