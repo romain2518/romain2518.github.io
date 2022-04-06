@@ -2,6 +2,17 @@ body {
     background-color: #808e9b;
 }
 
+header {text-align: center;}
+
+header>* {
+    font-weight: bold;
+    margin: 0.2em 0;
+}
+
+h1 {font-size: 2em;}
+
+h2 {font-size: 1.5em;}
+
 section {
     display: flex;
     flex-direction: column;
