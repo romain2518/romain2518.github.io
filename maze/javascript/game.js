@@ -2,6 +2,23 @@ const game = {
     init: function () {
         game.loadLevel(0);
         
+        //Load level selctor
+        const selectorElm = document.querySelector('#levelSelector');
+        let i = 0;
+        levels.forEach(level => {
+            const optionElm = document.createElement('option');
+            optionElm.innerText = level.title;
+            optionElm.value = i;
+
+            selectorElm.appendChild(optionElm);
+            i++;
+        });
+
+        selectorElm.addEventListener('change', function (event) {
+            game.loadLevel(event.target.value);
+        })
+
+        //Keydown event
         document.addEventListener('keydown', game.keydownHandler);
     },
     cases: {
