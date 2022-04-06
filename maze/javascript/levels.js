@@ -9,7 +9,7 @@
 
 const levels = [
     {
-        title: '',
+        title: 'Base level',
         map: [
             'xxxxHxxx',
             'xxoooxxx',
@@ -89,7 +89,21 @@ const levels = [
             'xxxxxxxxxxxxxxxxxxxxxoxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             'xxxxxxxxxxxxxxxxxxxxxoxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
             'xxxxxxxxxxxxxxxxxxxxxFxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            
         ],
     },
+    {
+        title: 'Snail',
+        map: [
+            'Fooooooooo',
+            'xxxxxxxxxo',
+            'ooooooooxo',
+            'oxxxxxxoxo',
+            'oxooooxoxo',
+            'oxoxxHxoxo',
+            'oxoxxxxoxo',
+            'oxooooooxo',
+            'oxxxxxxxxo',
+            'oooooooooo',
+        ],
+    }
 ];
