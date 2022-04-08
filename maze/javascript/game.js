@@ -35,17 +35,6 @@ const game = {
 
         document.querySelector('h2 span').innerText = levels[level].title;
         game.map = levels[level].map
-
-        const maxSizeX = `calc(90vw / ${game.map[0].length})`;
-        const maxSizeY = `calc(90vh / ${game.map[0].length})`;
-        
-        //New stylesheet adapting sizes
-        const styleElm = document.head.appendChild(document.createElement('style'));
-        styleElm.innerHTML = `section div div {
-            width: min(${maxSizeX}, ${maxSizeY});
-            height: min(${maxSizeX}, ${maxSizeY});
-        }   
-        `;
         
         let y = 0;
         game.map.forEach(line => {

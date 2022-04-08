@@ -2,11 +2,14 @@ body {
     background-color: #808e9b;
 }
 
-header {text-align: center;}
+header {
+    text-align: center;
+    padding: 0.2em 0;
+    font-weight: bold;
+}
 
 header>* {
-    font-weight: bold;
-    margin: 0.2em 0;
+    margin-bottom: 10px;
 }
 
 h1 {font-size: 2em;}
@@ -16,12 +19,17 @@ h2 {font-size: 1.5em;}
 section {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+
+    width: min(95vw, calc(100vh - 125px));
+    height: min(95vw, calc(100vh - 125px));
 }
 
 section>div {
     display: flex;
-    width: 90%;
-    margin: auto;
+    width: inherit;
+    height: inherit;
+    margin: 0 auto;
     justify-content: center;
 }
 

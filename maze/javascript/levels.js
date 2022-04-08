@@ -105,5 +105,5 @@ const levels = [
             'oxxxxxxxxo',
             'oooooooooo',
         ],
-    }
+    },
 ];
